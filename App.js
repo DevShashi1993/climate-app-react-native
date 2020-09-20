@@ -1,10 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useEffect, useLayoutEffect, useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Button, Appearance } from 'react-native-paper';
+import { WEATHER_API_KEY } from 'react-native-dotenv'
 import * as Location from 'expo-location';
 
-const WEATHER_API_KEY = '6ba2d126dc7cc5c8553e08078ef62590';
+// const WEATHER_API_KEY = '6ba2d126dc7cc5c8553e08078ef62590';
+const apiKey = process.env['WEATHER_API_KEY'];
+console.log('WEATHER_API_KEY = ', WEATHER_API_KEY);
 const BASE_WEATHER_URL = 'https://api.openweathermap.org/data/2.5/weather?';
 
 const App = () => {
