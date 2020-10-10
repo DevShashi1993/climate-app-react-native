@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
+import FooterDataList from "./FooterDataList";
 import Env from "../Constants/Env";
 import * as Location from "expo-location";
 
@@ -68,13 +69,22 @@ const ResultArea = ({ cityName }) => {
           </>
         )}
       </View>
+      {currentWeather && (
+        <FooterDataList
+          wind_speed={currentWeather.wind.speed}
+          pressure={currentWeather.main.pressure}
+          humidity={currentWeather.main.humidity}
+          temp_min={currentWeather.main.temp_min}
+          temp_max={currentWeather.main.temp_max}
+        />
+      )}
     </>
   );
 };
 
 const styles = StyleSheet.create({
   resultContainer: {
-    flex: 1,
+    flex: 4,
     justifyContent: "center",
     alignItems: "center",
   },

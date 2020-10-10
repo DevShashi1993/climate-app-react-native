@@ -1,5 +1,12 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
-import { StatusBar, StyleSheet, Text, View } from "react-native";
+import {
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+  Keyboard,
+  TouchableWithoutFeedback,
+} from "react-native";
 import { Card, Title, Paragraph } from "react-native-paper";
 import Header from "./components/Header";
 import Colors from "./Constants/Colors";
@@ -19,12 +26,14 @@ const App = () => {
 
   return (
     <>
-      <View style={styles.container}>
-        <StatusBar backgroundColor={Colors.primary} barStyle="default" />
-        <Header title="Climate App" />
-        <InputArea onHandleInput={handleInput} />
-        <ResultArea cityName={cityName} />
-      </View>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.container}>
+          <StatusBar backgroundColor={Colors.primary} barStyle="default" />
+          <Header title="Climate App" />
+          <InputArea onHandleInput={handleInput} />
+          <ResultArea cityName={cityName} />
+        </View>
+      </TouchableWithoutFeedback>
     </>
   );
 };
